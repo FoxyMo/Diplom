@@ -1,0 +1,309 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, jpeg, ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    Timer1: TTimer;
+    Image7: TImage;
+    Image8: TImage;
+    Image9: TImage;
+    Image10: TImage;
+    Image11: TImage;
+    Image12: TImage;
+    Image13: TImage;
+    Image14: TImage;
+    Image15: TImage;
+    Label2: TLabel;
+    Label1: TLabel;
+    Timer2: TTimer;
+    Label3: TLabel;
+    Timer3: TTimer;
+    Timer4: TTimer;
+    procedure Image2Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure Timer3Timer(Sender: TObject);
+    procedure Timer4Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  l,t,k,i,n:integer;
+  sch:integer;
+  number:integer;
+  dop:boolean;
+
+
+implementation
+
+uses Unit3, Unit2, Unit4;
+
+{$R *.dfm}
+
+
+
+procedure TForm1.Image2Click(Sender: TObject);
+begin
+k:=0;
+if image3.visible=true then timer1.Enabled:=True;
+if image4.visible=true then begin
+timer1.Enabled:=True;
+  end; //showmessage('Неправильно так то');
+if image5.visible=true then begin
+ timer1.Enabled:=True;
+ end; //showmessage('Неправильно так то');
+if image6.visible=true then timer1.Enabled:=True;
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+case k of
+0:begin
+  if image3.visible=true then begin
+  l:=image2.Left-image3.Left;
+  t:=image2.Top-image3.Top;
+  image3.Left:=image3.Left+ (l div 10);
+  image3.top:=image3.top+ (t div 10);
+  if ((l div 10)=0) and ((t div 10)=0) then begin timer1.Enabled:=false;
+  image3.Visible:=false;
+  image10.Picture:=image3.Picture;
+  image4.Visible:=true;
+  i:=i+1;
+  sch:=sch+1;
+  end;
+  end;
+    if image4.visible=true then begin
+    l:=image2.Left-image4.Left;
+    t:=image2.Top-image4.Top;
+    image4.Left:=image4.Left+ (l div 10);
+    image4.top:=image4.top+ (t div 10);
+    if ((l div 10)=0) and ((t div 10)=0) then begin
+    timer4.Enabled:=true;
+        l:=abs(100-image4.Left);
+        t:=abs(100-image4.Top);
+        image4.Left:=image4.Left+ (l div 10);
+        image4.top:=image4.top+ (t div 10);
+    timer1.Enabled:=false;
+    //image4.Visible:=false;
+    //image9.Picture:=image4.Picture;
+    //image5.Visible:=true;
+    //sch:=sch+1;
+    end;
+    end;
+  if image5.visible=true then begin
+  l:=image2.Left-image5.Left;
+  t:=image2.Top-image5.Top;
+  image5.Left:=image5.Left+ (l div 10);
+  image5.top:=image5.top+ (t div 10);
+  if ((l div 10)=0) and ((t div 10)=0) then begin
+    timer4.Enabled:=true;
+        l:=abs(100-image5.Left);
+        t:=abs(100-image5.Top);
+        image5.Left:=image5.Left+ (l div 10);
+        image5.top:=image5.top+ (t div 10);
+    timer1.Enabled:=false;
+    {then begin timer1.Enabled:=false;
+  image5.Visible:=false;
+  image8.Picture:=image5.Picture;
+  image6.Visible:=true;
+  sch:=sch+1;   }
+  end;
+  end;
+    if image6.visible=true then begin
+    l:=image2.Left-image6.Left;
+    t:=image2.Top-image6.Top;
+    image6.Left:=image6.Left+ (l div 10);
+    image6.top:=image6.top+ (t div 10);
+    if ((l div 10)=0) and ((t div 10)=0) then begin timer1.Enabled:=false;
+    image6.Visible:=false;
+    image7.Picture:=image6.Picture;
+    i:=i+1;
+    sch:=sch+1;
+    end;
+    end;
+    end;
+1:begin
+if image3.visible=true then begin
+  l:=image1.Left-image3.Left;
+  t:=image1.Top-image3.Top;
+  image3.Left:=image3.Left+ (l div 10);
+  image3.top:=image3.top+ (t div 10);
+  if ((l div 10)=0) and ((t div 10)=0) then begin
+    timer4.Enabled:=true;
+        l:=abs(100-image3.Left);
+        t:=abs(100-image3.Top);
+        image3.Left:=image3.Left+ (l div 10);
+        image3.top:=image3.top+ (t div 10);
+    timer1.Enabled:=false;
+    {then begin timer1.Enabled:=false;
+  image3.Visible:=false;
+  image14.Picture:=image3.Picture;
+  image4.Visible:=true;
+  sch:=sch+1;                          }
+  end;
+  end;
+    if image4.visible=true then begin
+    l:=image1.Left-image4.Left;
+    t:=image1.Top-image4.Top;
+    image4.Left:=image4.Left+ (l div 10);
+    image4.top:=image4.top+ (t div 10);
+    if ((l div 10)=0) and ((t div 10)=0) then begin timer1.Enabled:=false;
+    image4.Visible:=false;
+    image13.Picture:=image4.Picture;
+    image5.Visible:=true;
+    sch:=sch+1;
+    i:=i+1;
+    end;
+    end;
+  if image5.visible=true then begin
+  l:=image1.Left-image5.Left;
+  t:=image1.Top-image5.Top;
+  image5.Left:=image5.Left+ (l div 10);
+  image5.top:=image5.top+ (t div 10);
+  if ((l div 10)=0) and ((t div 10)=0) then begin timer1.Enabled:=false;
+  image5.Visible:=false;
+  image12.Picture:=image5.Picture;
+  image6.Visible:=true;
+  sch:=sch+1;
+  i:=i+1;
+  end;
+  end;
+    if image6.visible=true then begin
+    l:=image1.Left-image6.Left;
+    t:=image1.Top-image6.Top;
+    image6.Left:=image6.Left+ (l div 10);
+    image6.top:=image6.top+ (t div 10);
+    if ((l div 10)=0) and ((t div 10)=0) then begin
+    timer4.Enabled:=true;
+        l:=abs(100-image6.Left);
+        t:=abs(100-image6.Top);
+        image6.Left:=image6.Left+ (l div 10);
+        image6.top:=image6.top+ (t div 10);
+    timer1.Enabled:=false;
+    {then begin timer1.Enabled:=false;
+    image6.Visible:=false;
+    image11.Picture:=image6.Picture;
+    sch:=sch+1;    }
+    end;
+    end;
+end;
+end;
+if sch=4 then
+  timer3.Enabled:=true;
+end;
+
+
+procedure TForm1.Image1Click(Sender: TObject);
+begin
+k:=1;
+if image3.visible=true then timer1.Enabled:=True;// showmessage('Неправильно так то');
+if image4.visible=true then timer1.Enabled:=True;
+if image5.visible=true then timer1.Enabled:=True;
+if image6.visible=true then timer1.Enabled:=True; //showmessage('Неправильно так то');   
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+label1.Caption:=inttostr(i);
+
+end;
+
+procedure TForm1.Timer2Timer(Sender: TObject);
+begin
+if n<>0 then begin
+label1.Caption:=inttostr(n);
+n:=n-1;
+end else
+begin
+form1.timer2.enabled:=false;
+showmessage('Время вышло');
+if i<>4 then showmessage('Тест не пройден') else
+  showmessage('Тест пройден');
+end;
+end;
+
+procedure TForm1.FormActivate(Sender: TObject);
+begin
+if StartForm.RadioButton1.Checked then n:=60;
+if StartForm.RadioButton2.Checked then n:=120;
+if StartForm.RadioButton3.Checked then n:=180;
+number:=1;
+end;
+
+procedure TForm1.Timer3Timer(Sender: TObject);
+begin
+    timer2.enabled:=false;
+NextForm.show;
+Form1.Hide;
+Timer3.Enabled:=false;
+if i=4 then
+  begin
+  NextForm.Label1.Caption:='Тест пройден';
+  dop:=true;
+  NextForm.Button2.Visible:=true;
+  end
+  else  begin
+  NextForm.Label1.Caption:='Тест не пройден';
+  dop:=false;
+  NextForm.Button2.Visible:=false;
+  end;
+end;
+
+procedure TForm1.Timer4Timer(Sender: TObject);
+begin
+if image4.Visible=true then begin
+        l:=100-image4.Left;
+        t:=100-image4.Top;
+        image4.Left:=image4.Left+ (l div 10);
+        image4.top:=image4.top+ (t div 10);
+        if ((l div 10)=0) and ((t div 10)=0) then
+        timer4.Enabled:=false;
+end;
+if image5.Visible=true then begin
+        l:=100-image5.Left;
+        t:=100-image5.Top;
+        image5.Left:=image5.Left+ (l div 10);
+        image5.top:=image5.top+ (t div 10);
+        if ((l div 10)=0) and ((t div 10)=0) then
+        timer4.Enabled:=false;
+end;
+if image3.Visible=true then begin
+        l:=100-image3.Left;
+        t:=100-image3.Top;
+        image3.Left:=image3.Left+ (l div 10);
+        image3.top:=image3.top+ (t div 10);
+        if ((l div 10)=0) and ((t div 10)=0) then
+        timer4.Enabled:=false;
+        end;
+if image6.Visible=true then begin
+        l:=100-image6.Left;
+        t:=100-image6.Top;
+        image6.Left:=image6.Left+ (l div 10);
+        image6.top:=image6.top+ (t div 10);
+        if ((l div 10)=0) and ((t div 10)=0) then
+        timer4.Enabled:=false;
+
+
+end;
+
+end;
+
+end.
