@@ -74,8 +74,6 @@ uses Unit1, Unit2, Unit3;
 
 procedure TTest2.FormActivate(Sender: TObject);
 begin
-time := 0;
-errors := 0;
 number:=2;
 i:=0;
 sch:=0;
@@ -119,34 +117,34 @@ end;
 procedure TTest2.SpeedButton1Click(Sender: TObject);
 begin
 k:=1;
-if image1.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image2.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image3.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
-if image4.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image5.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
-if image6.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
+if image1.visible=true then timer1.Enabled:=True;
+if image2.visible=true then timer1.Enabled:=True;
+if image3.visible=true then timer1.Enabled:=True;
+if image4.visible=true then timer1.Enabled:=True;
+if image5.visible=true then timer1.Enabled:=True;
+if image6.visible=true then timer1.Enabled:=True;
 end;
 
 procedure TTest2.SpeedButton2Click(Sender: TObject);
 begin
 k:=2;
-if image1.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
-if image2.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image3.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image4.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image5.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image6.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
+if image1.visible=true then timer1.Enabled:=True;
+if image2.visible=true then timer1.Enabled:=True;
+if image3.visible=true then timer1.Enabled:=True;
+if image4.visible=true then timer1.Enabled:=True;
+if image5.visible=true then timer1.Enabled:=True;
+if image6.visible=true then timer1.Enabled:=True;
 end;
 
 procedure TTest2.SpeedButton3Click(Sender: TObject);
 begin
 k:=3;
-if image1.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image2.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
-if image3.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image4.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
-if image5.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
-if image6.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;;
+if image1.visible=true then timer1.Enabled:=True;
+if image2.visible=true then timer1.Enabled:=True;
+if image3.visible=true then timer1.Enabled:=True;
+if image4.visible=true then timer1.Enabled:=True;
+if image5.visible=true then timer1.Enabled:=True;
+if image6.visible=true then timer1.Enabled:=True;
 end;
 
 procedure TTest2.Timer1Timer(Sender: TObject);
@@ -461,7 +459,6 @@ begin
 if n<>0 then begin
 label1.Caption:=inttostr(n);
 n:=n-1;
-time := time + 1;
 end else
 begin
 timer2.enabled:=false;
@@ -477,9 +474,17 @@ begin
 NextForm.show;
 Test2.Hide;
 Timer3.Enabled:=false;
-NextForm.Label1.Caption := 'Имя: ' + kidName;
-NextForm.Label2.Caption := 'Количество ошибок: ' + IntToStr(errors);
-NextForm.Label3.Caption := 'Время: ' + IntToStr(time) + ' сек';
+if i=6 then
+  begin
+  NextForm.Label1.Caption:='Тест пройден';
+  dop:=true;
+  NextForm.Button2.Visible:=true;
+  end
+  else  begin
+  NextForm.Label1.Caption:='Тест не пройден';
+  dop:=false;
+  NextForm.Button2.Visible:=false;
+  end;
 
 end;
 

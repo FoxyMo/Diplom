@@ -8,13 +8,15 @@ uses
 
 type
   TNextForm = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
     Button3: TButton;
     Label1: TLabel;
-    procedure Button3Click(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    Label2: TLabel;
+    Label3: TLabel;
+    Button1: TButton;
+    Button2: TButton;
     procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,42 +28,27 @@ var
 
 implementation
 
-uses Unit1, Unit2, Unit4;
+uses Unit1, Unit2, Unit4, Unit5;
 
 {$R *.dfm}
 
-procedure TNextForm.Button3Click(Sender: TObject);
-begin
-StartForm.close;
-end;
+
 
 procedure TNextForm.Button1Click(Sender: TObject);
 begin
-case number of
-1:begin
-  form1.show;
-  NextForm.hide;
-  StartForm.button1.click;
-  end;
-2:begin
-  Test2.show;
-  NextForm.hide;
-  end;
-end;
-
+     StartForm.show;
+     NextForm.Hide;
 end;
 
 procedure TNextForm.Button2Click(Sender: TObject);
 begin
-case number of
-1:begin
-  Test2.show;
-  NextForm.Hide;
-  end;
-2:begin
-  //Test3.show;
-  NextForm.hide;
-  end;
+Form5.Show;
+NextForm.Hide;
 end;
+
+procedure TNextForm.Button3Click(Sender: TObject);
+begin
+  StartForm.close;
 end;
+
 end.

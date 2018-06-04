@@ -22,7 +22,7 @@ var
 
 implementation
 
-uses Unit1, Unit2, Unit4;
+uses Unit1, Unit2;
 
 {$R *.dfm}
 
@@ -30,8 +30,7 @@ procedure TForm5.Button1Click(Sender: TObject);
 begin
 if Radiogroup1.ItemIndex = 0 then
 begin
-  time := 0;
-  errors := 0;
+
   form1.Show;
   form5.Hide;
   form1.Timer2.Enabled:=true;
@@ -56,22 +55,18 @@ begin
   image6.Left:=100;
   image6.top:=100;
   end;
-end else
+end;
 
 if Radiogroup1.ItemIndex = 1 then
 begin
-time := 0;
-errors := 0;
   Test2.show;
   form5.Hide;
-end else
+end;
 
 if Radiogroup1.ItemIndex = 2 then
 begin
-time := 0;
-errors := 0;
 
-end else showmessage('Выберите тест');
+end;
 
 end;
 

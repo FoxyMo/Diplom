@@ -49,8 +49,6 @@ var
   l,t,k,i,n:integer;
   sch:integer;
   number:integer;
-  time:integer;
-  errors:integer;
   dop:boolean;
 
 
@@ -65,18 +63,14 @@ uses Unit3, Unit2, Unit4;
 procedure TForm1.Image2Click(Sender: TObject);
 begin
 k:=0;
-if image3.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
+if image3.visible=true then timer1.Enabled:=True;
 if image4.visible=true then begin
 timer1.Enabled:=True;
-timer4.Enabled:=false;
-errors := errors + 1;
   end; //showmessage('Неправильно так то');
 if image5.visible=true then begin
  timer1.Enabled:=True;
- timer4.Enabled:=false;
- errors := errors + 1;
  end; //showmessage('Неправильно так то');
-if image6.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
+if image6.visible=true then timer1.Enabled:=True;
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
@@ -220,10 +214,10 @@ end;
 procedure TForm1.Image1Click(Sender: TObject);
 begin
 k:=1;
-if image3.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end;// showmessage('Неправильно так то');
-if image4.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
-if image5.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; end;
-if image6.visible=true then begin timer1.Enabled:=True; timer4.Enabled:=false; errors := errors + 1; end; //showmessage('Неправильно так то');
+if image3.visible=true then timer1.Enabled:=True;// showmessage('Неправильно так то');
+if image4.visible=true then timer1.Enabled:=True;
+if image5.visible=true then timer1.Enabled:=True;
+if image6.visible=true then timer1.Enabled:=True; //showmessage('Неправильно так то');   
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
@@ -237,7 +231,6 @@ begin
 if n<>0 then begin
 label1.Caption:=inttostr(n);
 n:=n-1;
-time:= time + 1;
 end else
 begin
 form1.timer2.enabled:=false;
@@ -261,10 +254,17 @@ begin
 NextForm.show;
 Form1.Hide;
 Timer3.Enabled:=false;
-NextForm.Label1.Caption := 'Имя: ' + kidName;
-NextForm.Label2.Caption := 'Количество ошибок: ' + IntToStr(errors);
-NextForm.Label3.Caption := 'Время: ' + IntToStr(time) + ' сек';
-
+if i=4 then
+  begin
+  NextForm.Label1.Caption:='Тест пройден';
+  dop:=true;
+  NextForm.Button2.Visible:=true;
+  end
+  else  begin
+  NextForm.Label1.Caption:='Тест не пройден';
+  dop:=false;
+  NextForm.Button2.Visible:=false;
+  end;
 end;
 
 procedure TForm1.Timer4Timer(Sender: TObject);
