@@ -13,8 +13,6 @@ type
     RadioButton2: TRadioButton;
     RadioButton3: TRadioButton;
     Label1: TLabel;
-    Edit1: TEdit;
-    Label2: TLabel;
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
@@ -24,22 +22,39 @@ type
 
 var
   StartForm: TStartForm;
-  kidName: string;
 
 implementation
 
-uses Unit1, Unit3, Unit4, Unit5;
+uses Unit1, Unit3, Unit4;
 
 {$R *.dfm}
 
 procedure TStartForm.Button1Click(Sender: TObject);
 begin
-kidName := Edit1.Text;
-if Edit1.Text <> '' then
-begin
-form5.Show;
+form1.Show;
 StartForm.Hide;
-end else Showmessage('¬ведите им€ ребенка!');
+form1.Timer2.Enabled:=true;
+with form1 do begin
+image7.Picture:=image15.Picture;
+image8.Picture:=image15.Picture;
+image9.Picture:=image15.Picture;
+image10.Picture:=image15.Picture;
+image11.Picture:=image15.Picture;
+image12.Picture:=image15.Picture;
+image13.Picture:=image15.Picture;
+image14.Picture:=image15.Picture;
+i:=0;
+sch:=0;
+image3.Visible:=true;
+image3.Left:=100;
+image3.top:=100;
+image4.Left:=100;
+image4.top:=100;
+image5.Left:=100;
+image5.top:=100;
+image6.Left:=100;
+image6.top:=100;
+end;
 
 end;
 
