@@ -23,7 +23,6 @@ type
     SpeedButton5: TSpeedButton;
     Timer2: TTimer;
     Timer3: TTimer;
-    Label3: TLabel;
     procedure Timer3Timer(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);

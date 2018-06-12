@@ -25615,19 +25615,6 @@ object Test3: TTest3
     ParentFont = False
     OnClick = SpeedButton5Click
   end
-  object Label3: TLabel
-    Left = 192
-    Top = 8
-    Width = 274
-    Height = 25
-    Caption = #1057#1082#1086#1083#1100#1082#1086' '#1087#1088#1077#1076#1084#1077#1090#1086#1074' '#1085#1072' '#1082#1072#1088#1090#1080#1085#1082#1077'?'
-    Font.Charset = RUSSIAN_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -21
-    Font.Name = 'Arial Narrow'
-    Font.Style = []
-    ParentFont = False
-  end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer

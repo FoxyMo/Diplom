@@ -1,0 +1,98 @@
+unit Unit6;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, jpeg, ExtCtrls;
+
+type
+  TTest3 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Timer1: TTimer;
+    Label1: TLabel;
+    Label2: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Test3: TTest3;
+   l,t,k,i,n:integer;
+  sch:integer;
+  number:integer;
+  time:integer;
+  errors:integer;
+  dop:boolean;
+
+implementation
+
+{$R *.dfm}
+
+procedure TTest3.Button1Click(Sender: TObject);
+begin
+if Image1.Visible = true then
+  begin
+  
+  end;
+end;
+
+procedure TTest3.FormActivate(Sender: TObject);
+begin
+
+if StartForm.RadioButton1.Checked then n:=60;
+if StartForm.RadioButton2.Checked then n:=120;
+if StartForm.RadioButton3.Checked then n:=180;
+
+Image1.Top := 60;
+Image1.Left := 60;
+
+Image2.Top := 60;
+Image2.Left := 60;
+
+Image3.Top := 60;
+Image3.Left := 60;
+
+Image4.Top := 60;
+Image4.Left := 60;
+
+Image5.Top := 60;
+Image5.Left := 60;
+
+Image1.Visible := true;
+Image2.Visible := false;
+Image3.Visible := false;
+Image4.Visible := false;
+Image5.Visible := false;
+end;
+
+procedure TTest3.Timer1Timer(Sender: TObject);
+begin
+if n<>0 then begin
+label1.Caption:=inttostr(n);
+n:=n-1;
+time:= time + 1;
+end else
+begin
+form1.timer2.enabled:=false;
+showmessage('Время вышло');
+if i<>4 then showmessage('Тест не пройден') else
+  showmessage('Тест пройден');
+end;
+end;
+
+end.
