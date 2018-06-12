@@ -22,7 +22,7 @@ var
 
 implementation
 
-uses Unit1, Unit2, Unit4, Unit6;
+uses Unit1, Unit2, Unit4;
 
 {$R *.dfm}
 
@@ -70,8 +70,6 @@ if Radiogroup1.ItemIndex = 2 then
 begin
 time := 0;
 errors := 0;
-Test3.show;
-form5.Hide;
 
 end else showmessage('Выберите тест');
 
